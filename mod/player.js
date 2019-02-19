@@ -3,142 +3,108 @@ const app = express ();
 
 //response.end(JSON.stringify(theString));
 
-//JSON.parse(theString);
+
 
 // Gets All Players
 app.get('/players',function(request, response) {
-  response.writeHead(200);
-  response.write('<html><body><p>You have recieved all players</p></body></html>');
+  response.json({player1: 'Antonio', player2: 'Bob'});
   response.end();
 });
 
 // Get Player
-app.get('/player', function(request,response){
-   response.writeHead(200);
-    response.write("<html><body><p>Recieved the player!</p>" + 
-                    "<p> I is see your are calling: player</p>");
-        response.end(); 
+app.get('/:player', function(request,response){
+    response.json("Recieved the player!");
+    response.end(); 
     
 });
 
 // Delete Player
-app.delete('/:player', function(request,response){
+app.delete('/players/:player', function(request,response){
     const player = request.params.player;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have terminated the " + player);
-    response.write("</p></body></html>");
+    response.json("Hello, you have terminated the " + player);
     response.end(); 
     
 });
 
 // Replace Player
-app.put('/:player', function(request,response){
+app.put('/players/:player', function(request,response){
     const player = request.params.player;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have replaced the " + player);
-    response.write("</p></body></html>");
-    response.end(); 
+    response.json("Hello, you have updated the " + player);
+    response.end();  
     
 });
 
 // Create Player
-app.post('/:player', function(request,response){
+app.post('/players/:player', function(request,response){
     const player = request.params.player;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have created the " + player);
-    response.write("</p></body></html>");
-    response.end(); 
-    
-});
-
-// Update Player
-app.patch('/:player', function(request,response){
-    const player = request.params.player;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have updated the " + player);
-    response.write("</p></body></html>");
+    response.json("Hello, you have added the " + player);
     response.end(); 
     
 });
 
 // Gets All Items
 app.get('/items',function(request, response) {
-  response.writeHead(200);
-  response.write('<html><body><p>You have recieved all items</p></body></html>');
+  response.json({item1: 'item 1', item2: 'item 2'});
   response.end();
 });
 
 // Get Item
-app.get('/item', function(request,response){
-   response.writeHead(200);
-    response.write("<html><body><p>Recieved the item!</p>");
-        response.end(); 
+app.get('/:item', function(request,response){
+   response.json("Recieved the player!");
+    response.end(); 
     
 });
 
 // Delete Item
 app.delete('/:item', function(request,response){
     const item = request.params.item;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have terminated the " + item);
-    response.write("</p></body></html>");
-    response.end(); 
+    response.json("Hello, you have terminated the " + item);
+    response.end();
     
 });
 
 // Replace Item
 app.put('/:item', function(request,response){
-    const item = request.params.item;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have replaced the " + item);
-    response.write("</p></body></html>");
-    response.end(); 
+     const item = request.params.item;
+    response.json("Hello, you have updated the " + item);
+    response.end();
     
 });
 
 // Create Item
 app.post('/:item', function(request,response){
     const item = request.params.item;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have created the " + item);
-    response.write("</p></body></html>");
-    response.end(); 
+    response.json("Hello, you have added the " + item);
+    response.end();
     
 });
 
 // Update Item
 app.patch('/:item', function(request,response){
-    const item = request.params.item;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have updated the " + item);
-    response.write("</p></body></html>");
-    response.end(); 
+     const item = request.params.item;
+    response.json("Hello, you have updated the " + item);
+    response.end();
 });
 
 // Get Game
 app.get('/game', function(request,response){
-   response.writeHead(200);
-    response.write("<html><body><p>Recieved the game!</p>");
-        response.end(); 
+   response.json("Recieved the game!");
+    response.end(); 
     
 });
 
 // Delete Game
 app.delete('/:game', function(request,response){
-    const game = request.params.game;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have updated the " + game);
-    response.write("</p></body></html>");
-    response.end(); 
+     const game = request.params.game;
+    response.json("Hello, you have terminated the " + game);
+    response.end();
     
 });
 
 // Replace Game
 app.put('/:game', function(request,response){
     const game = request.params.game;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have replaced the " + game);
-    response.write("</p></body></html>");
+    response.json("Hello, you have updated the " + game);
     response.end();  
     
 });
@@ -146,9 +112,7 @@ app.put('/:game', function(request,response){
 // Create Game
 app.post('/:game', function(request,response){
     const game = request.params.game;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have created the " + game);
-    response.write("</p></body></html>");
+    response.json("Hello, you have added the " + game);
     response.end(); 
     
 });
@@ -156,10 +120,8 @@ app.post('/:game', function(request,response){
 // Update Game
 app.patch('/:game', function(request,response){
     const game = request.params.game;
-    response.writeHead(200);
-    response.write("<html><body><p>Hello, you have updated the " + game);
-    response.write("</p></body></html>");
-    response.end(); 
+    response.json("Hello, you have updated the " + game);
+    response.end();
 });
 
 
