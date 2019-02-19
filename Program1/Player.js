@@ -5,12 +5,12 @@ const app = express ();
 
 // Gets All Players
 app.get('/players',function(request, response) {
-  response.json({player1: 'Antonio', player2: 'Bob'});
+  response.json({player1: 'Player 1', player2: 'Player 2'});
   response.end();
 });
 
 // Get Player
-app.get('/:player', function(request,response){
+app.get('/players/:player', function(request,response){
     const player = request.params.player;
     response.json("Hello, you have recieved " + player);
     response.end(); 
@@ -39,12 +39,12 @@ app.post('/players/:player', function(request,response){
 
 // Gets All Items
 app.get('/items',function(request, response) {
-  response.json({item1: 'item 1', item2: 'item 2'});
+  response.json({item1: 'item 1', item2: 'item 2', item3: 'item 3', item4: 'item 4'});
   response.end();
 });
 
 // Get Item
-app.get('/:item', function(request,response){
+app.get('/items/:item', function(request,response){
     const item = request.params.item;
     response.json("Hello, you have recieved your " + item);
     response.end(); 
@@ -78,7 +78,7 @@ app.get('/games', function(request,response){
 });
 
 // Get Game
-app.get('/:game', function(request,response){
+app.get('/games/:game', function(request,response){
     const game = request.params.game;
     response.json("Hello, you have recieved " + game);
     response.end(); 
