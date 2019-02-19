@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express ();
 
-//response.end(JSON.stringify(MyString));
+//response.end(JSON.stringify(theString));
 
 //JSON.parse(theString);
 
 // Gets All Players
-app.get('/',function(request, response) {
+app.get('/players',function(request, response) {
   response.writeHead(200);
-  response.write('<html><body><p>Please specify an player in the URL path</p></body></html>');
+  response.write('<html><body><p>You have recieved all players</p></body></html>');
   response.end();
 });
 
@@ -62,68 +62,68 @@ app.patch('/:player', function(request,response){
 });
 
 // Gets All Items
-app.get('/',function(request, response) {
+app.get('/items',function(request, response) {
   response.writeHead(200);
-  response.write('<html><body><p>Please specify an items in the URL path</p></body></html>');
+  response.write('<html><body><p>You have recieved all items</p></body></html>');
   response.end();
 });
 
-// Get Items
-app.get('/items', function(request,response){
+// Get Item
+app.get('/item', function(request,response){
    response.writeHead(200);
-    response.write("<html><body><p>Recieved the items!</p>");
+    response.write("<html><body><p>Recieved the item!</p>");
         response.end(); 
     
 });
 
-// Delete Items
-app.delete('/:items', function(request,response){
-    const items = request.params.items;
+// Delete Item
+app.delete('/:item', function(request,response){
+    const item = request.params.item;
     response.writeHead(200);
-    response.write("<html><body><p>Hello, you have terminated the " + items);
+    response.write("<html><body><p>Hello, you have terminated the " + item);
     response.write("</p></body></html>");
     response.end(); 
     
 });
 
-// Replace Items
-app.put('/:items', function(request,response){
-    const items = request.params.items;
+// Replace Item
+app.put('/:item', function(request,response){
+    const item = request.params.item;
     response.writeHead(200);
-    response.write("<html><body><p>Hello, you have replaced the " + items);
+    response.write("<html><body><p>Hello, you have replaced the " + item);
     response.write("</p></body></html>");
     response.end(); 
     
 });
 
-// Create Items
-app.post('/:items', function(request,response){
-    const items = request.params.items;
+// Create Item
+app.post('/:item', function(request,response){
+    const item = request.params.item;
     response.writeHead(200);
-    response.write("<html><body><p>Hello, you have created the " + items);
+    response.write("<html><body><p>Hello, you have created the " + item);
     response.write("</p></body></html>");
     response.end(); 
     
 });
 
-// Update Items
-app.patch('/:items', function(request,response){
-    const items = request.params.items;
+// Update Item
+app.patch('/:item', function(request,response){
+    const item = request.params.item;
     response.writeHead(200);
-    response.write("<html><body><p>Hello, you have updated the " + items);
+    response.write("<html><body><p>Hello, you have updated the " + item);
     response.write("</p></body></html>");
     response.end(); 
 });
 
-// Get Items
-app.get('/items', function(request,response){
+// Get Game
+app.get('/game', function(request,response){
    response.writeHead(200);
-    response.write("<html><body><p>Recieved the items!</p>");
+    response.write("<html><body><p>Recieved the game!</p>");
         response.end(); 
     
 });
 
-// Delete Items
+// Delete Game
 app.delete('/:game', function(request,response){
     const game = request.params.game;
     response.writeHead(200);
